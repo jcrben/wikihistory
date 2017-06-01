@@ -116,7 +116,7 @@ var loadData = function() {
   var cancel = false;
   if (username) {
     d3.select('#username-spinner').transition().style('opacity', 1);
-    d3.json(urlBase+'/edits_per_day/'+username+urlSuffix, function(err, data) {
+    d3.json('/edits_per_day/'+username+urlSuffix, function(err, data) {
       if (cancel) {
         return;
       }
