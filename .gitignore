@@ -3,3 +3,7 @@ __pycache__
 node_modules/
 package.json
 .idea/
+
+# Year caches + searched-users registry under cache/ ARE committed (durable,
+# accumulating data — past years are immutable). Only ignore the atomic temp files.
+cache/*.tmp

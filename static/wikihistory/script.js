@@ -92,8 +92,18 @@ legendSvg.append('text')
   .text('More Edits');
 
 
-var currDate = new Date();
-var startDate = new Date(new Date().setFullYear(currDate.getFullYear() - 1));
+var selectedYear = new Date().getFullYear();
+function computeWindow(y) {
+  var today = new Date();
+  return {
+    start: new Date(y, 0, 1),
+    // For the current year, stop at today (no empty future tail); past years span Jan 1–Dec 31.
+    end: (y === today.getFullYear()) ? today : new Date(y, 11, 31)
+  };
+}
+var _window = computeWindow(selectedYear);
+var startDate = _window.start;
+var currDate = _window.end;
 var randomData = function() {
   return d3.timeDays(d3.timeDay(startDate), currDate).map(function(d) {
     return {
@@ -116,7 +126,7 @@ var loadData = function() {
   var cancel = false;
   if (username) {
     d3.select('#username-spinner').transition().style('opacity', 1);
-    d3.json('/edits_per_day/'+username+urlSuffix, function(err, data) {
+    d3.json('/edits_per_day/'+encodeURIComponent(username)+urlSuffix+'&year='+selectedYear, function(err, data) {
       if (cancel) {
         return;
       }
@@ -266,4 +276,24 @@ var updateDayInfo = function(dayInfo) {
 usernameInput.addEventListener('change', function() {
   loadData();
 });
+
+function changeYear(delta) {
+  var maxYear = new Date().getFullYear();
+  var target = selectedYear + delta;
+  if (target > maxYear || target < 2001) {  // Wikipedia launched in 2001
+    return;
+  }
+  selectedYear = target;
+  var w = computeWindow(selectedYear);
+  startDate = w.start;
+  currDate = w.end;
+  document.getElementById('year-label').textContent = selectedYear;
+  loadData();
+}
+
+document.getElementById('year-label').textContent = selectedYear;
+document.getElementById('prev-year').addEventListener('click', function() { changeYear(-1); });
+document.getElementById('next-year').addEventListener('click', function() { changeYear(1); });
+document.getElementById('go-button').addEventListener('click', function() { loadData(); });
+
 loadData();

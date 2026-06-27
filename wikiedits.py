@@ -68,15 +68,14 @@ def main(argv):
       print(date, count, sep='\t')
 
 
-def get_edits(user, date=None, limit=None, time_limit=None):
-  """time_limit in days, date example: "2017-02-14" """
+def get_edits(user, date=None, limit=None, time_limit=None, start=None, end=None):
+  """time_limit in days, date example: "2017-02-14".
+  start/end are ISO 8601 timestamps bounding the query (start = newer bound,
+  end = older bound), e.g. a full year. If date is given it overrides start/end."""
 
   if date:
     end = date+'T00:00:00Z'
     start = date+'T23:59:59Z'
-  else:
-    end = None
-    start = None
 
   total_edits = 0
   cont = None
@@ -131,12 +130,12 @@ def get_data(url):
     fail('API returned an HTTP error {}: {}'.format(response.getcode(), response.reason))
 
 
-def get_edits_per_day(user, limit=None, time_limit=None):
+def get_edits_per_day(user, limit=None, time_limit=None, start=None, end=None):
   #TODO: Take timezone into account.
 
   last = None
   date_count = 0
-  for edit in get_edits(user, limit=limit, time_limit=time_limit):
+  for edit in get_edits(user, limit=limit, time_limit=time_limit, start=start, end=end):
     date = edit['timestamp'].split('T')[0]
     if date != last:
       if last is not None:
