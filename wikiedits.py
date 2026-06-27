@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import division
-from __future__ import print_function
-from __future__ import absolute_import
-from __future__ import unicode_literals
 import sys
 import json
 import errno
@@ -10,7 +6,12 @@ import pprint
 import logging
 import argparse
 import urllib.request
+import urllib.parse
 from datetime import datetime, timedelta
+
+# Wikimedia API policy requires a descriptive User-Agent; requests without one
+# may be rate-limited or blocked. https://meta.wikimedia.org/wiki/User-Agent_policy
+USER_AGENT = 'contribgraph/1.0 (https://contribgraph.toolforge.org; wikihistory) Python-urllib'
 
 ARG_DEFAULTS = {'log':sys.stderr, 'volume':logging.ERROR}
 DESCRIPTION = """Get a user's whole edit history. Currently prints the time and page name of the
@@ -60,7 +61,7 @@ def main(argv):
     for article_count in get_edits_for_day(args.user, args.date):
       print('{title}:\t{edits}'.format(**article_count))
   else:
-    for edit in get_edits(args.user, args.limit):
+    for edit in get_edits(args.user, limit=args.limit):
       pprint.pprint(edit)
     #   print(edit['timestamp'], edit['title'], sep='\t')
     for date, count in get_edits_per_day(args.user, args.limit):
@@ -121,7 +122,8 @@ def make_url(user, cont=None, start=None, end=None):
 
 def get_data(url):
   logging.info(url)
-  response = urllib.request.urlopen(url)
+  request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+  response = urllib.request.urlopen(request)
   if response.getcode() == 200:
     response_bytes = response.read()
     return json.loads(str(response_bytes, 'utf8'))

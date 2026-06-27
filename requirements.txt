@@ -1,6 +1,3 @@
-click==6.7
-Flask==0.12
-itsdangerous==0.24
-Jinja2==2.9.5
-MarkupSafe==0.23
-Werkzeug==0.11.15
+# Modernized 2026-06-27 (was Flask 0.12 / 2017-era). Flask 3.x pulls in
+# current Werkzeug, Jinja2, click, itsdangerous, and MarkupSafe.
+Flask>=3.0,<4
