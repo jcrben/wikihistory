@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/toolinfo-1.4.0.json",
+  "name": "contribgraph",
+  "title": "contribgraph",
+  "description": "A GitHub-style contribution graph of a Wikipedia user's edit history (an edits-per-day heatmap), built on the MediaWiki usercontribs API.",
+  "url": "https://contribgraph.toolforge.org",
+  "keywords": "wikipedia, edits, contributions, contribution graph, heatmap, usercontribs, visualization",
+  "author": [
+    { "name": "Ben Creasy" },
+    { "name": "Gergő Tisza" }
+  ],
+  "repository": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory",
+  "technology_used": ["Python", "Flask"],
+  "developer_docs_url": [
+    { "url": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory/-/blob/master/README.md", "language": "en" }
+  ],
+  "_comment": "license intentionally omitted: upstream NickSto/wikihistory is unlicensed; resolve license with upstream before declaring one. See README."
+}
