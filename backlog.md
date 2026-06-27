@@ -12,6 +12,12 @@ Deferred, low-priority items. Active work + status: see global todo `0653a9`.
 
 ## Visibility: who can see the on-wiki widget (important)
 
+**TL;DR — to let *other people* use/see this, we'd need to build a Gadget.** The current
+personal-JS deployment only renders for Ben. A shared userscript lets opt-in users see it;
+a default site-wide Gadget (interface-admin + consensus) is the only way everyone/anon sees
+it automatically. Details below.
+
+
 The widget renders via **personal JS** (`User:ImperfectlyInformed/common.js` → imports
 `wikihistory.js`). MediaWiki rule: **personal JS only runs for that account, when logged in.**
 
