@@ -2,13 +2,13 @@
 
 Deferred, low-priority items. Active work + status: see global todo `0653a9`.
 
-## License (deferred — leaving unlicensed for now)
-- Upstream [NickSto/wikihistory](https://github.com/NickSto/wikihistory) is **unlicensed**
-  (all-rights-reserved by default), so this fork can't declare an open-source license
-  unilaterally.
-- **Action when revisited:** reach out to the upstream author (Nick Stockton / NickSto) to
-  add or agree on a license, then declare a matching license here + in `toolinfo.json`.
-- Decision 2026-06-27: leave unlicensed for now; not blocking the modernize/redeploy work.
+## License — 0BSD (decided 2026-06-27)
+- This fork is now licensed **0BSD** (Zero-Clause BSD, public-domain-equivalent) — see
+  `LICENSE`, README, `toolinfo.json`.
+- Caveat: upstream [NickSto/wikihistory](https://github.com/NickSto/wikihistory) (Nick
+  Stoler, nmapsy@gmail.com) is **unlicensed**. 0BSD here covers this fork's changes; the
+  upstream author is being emailed about licensing his original portions.
+- **In progress:** email Nick Stoler asking him to add a license upstream (or bless 0BSD).
 
 ## Visibility: who can see the on-wiki widget (important)
 

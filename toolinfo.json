@@ -11,8 +11,8 @@
   ],
   "repository": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory",
   "technology_used": ["Python", "Flask"],
+  "license": "0BSD",
   "developer_docs_url": [
     { "url": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory/-/blob/master/README.md", "language": "en" }
-  ],
-  "_comment": "license intentionally omitted: upstream NickSto/wikihistory is unlicensed; resolve license with upstream before declaring one. See README."
+  ]
 }
