@@ -13,13 +13,19 @@
 ( function () {
 	'use strict';
 
-	// Only on User: (2) or User talk: (3) pages.
+	// Render only on a dedicated User: subpage named ".../wikihistory"
+	// (e.g. User:ImperfectlyInformed/wikihistory) — not the main user page.
 	var ns = mw.config.get( 'wgNamespaceNumber' );
 	if ( ns !== 2 && ns !== 3 ) {
 		return;
 	}
-	// "ImperfectlyInformed" or "ImperfectlyInformed/common.js" -> base username.
-	var user = mw.config.get( 'wgTitle' ).split( '/' )[ 0 ];
+	var parts = mw.config.get( 'wgTitle' ).split( '/' ); // ["ImperfectlyInformed","wikihistory"]
+	if ( parts[ parts.length - 1 ] !== 'wikihistory' ) {
+		return;
+	}
+	// Prefer the username from the page's .username span (the userbox), else the subpage owner.
+	var unameEl = document.querySelector( '#wikihistory .username, .username' );
+	var user = ( unameEl && unameEl.textContent.trim() ) || parts[ 0 ];
 	if ( !user ) {
 		return;
 	}
