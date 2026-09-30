@@ -9,10 +9,10 @@
     { "name": "Ben Creasy" },
     { "name": "Gergő Tisza" }
   ],
-  "repository": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory",
+  "repository": "https://github.com/jcrben/wikihistory",
   "technology_used": ["Python", "Flask"],
-  "license": "0BSD",
+  "license": "MIT",
   "developer_docs_url": [
-    { "url": "https://gitlab.com/jcrben-all-groups/jcrben-wiki/wikihistory/-/blob/master/README.md", "language": "en" }
+    { "url": "https://github.com/jcrben/wikihistory/blob/master/README.md", "language": "en" }
   ]
 }

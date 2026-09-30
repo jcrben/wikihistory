@@ -42,9 +42,8 @@ Maintainers: Ben Creasy, Gergő Tisza.
 
 ## License
 
-**[0BSD](https://spdx.org/licenses/0BSD.html)** (Zero-Clause BSD) — see [LICENSE](LICENSE).
-Public-domain-equivalent; use freely.
+**MIT** — see [LICENSE](LICENSE).
 
-Note: this is a fork of [NickSto/wikihistory](https://github.com/NickSto/wikihistory),
-which is itself unlicensed upstream. 0BSD is applied here covering this fork's changes; the
-upstream author is being contacted separately about licensing their original portions.
+This is a fork of [NickSto/wikihistory](https://github.com/NickSto/wikihistory). Upstream
+merged an MIT license in [PR #6](https://github.com/NickSto/wikihistory/pull/6) (merged
+2026-07-12), and this fork carries the same MIT terms.
