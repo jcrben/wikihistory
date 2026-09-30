@@ -37,7 +37,7 @@ Maintainers: Ben Creasy, Gergő Tisza.
 
 - **Dependencies are 2017-era** (Flask 0.12, Werkzeug 0.11) — modernize before any redeploy.
 - A 2023 Toolforge **standards review** flagged missing **description**, **license**, and
-  **published source**. Description + a `toolinfo.json` are now in this repo; license is open (below).
+  **published source**. Description + a `toolinfo.json` are now in this repo; license is now MIT (below).
 - Redeploying the Toolforge webservice needs the **Wikimedia developer/LDAP account**.
 
 ## License
